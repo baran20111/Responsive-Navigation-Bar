@@ -1,0 +1,103 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+nav{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background: #5d4954;
+}
+
+.logo{
+    color:rgb(226,226,226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+}
+.nav-links{
+    display:flex;
+    justify-content: space-around;
+    width: 30%;
+}
+.nav-links li{
+    list-style: none;
+}
+.nav-links li a{
+  text-decoration: none;
+  color:rgb(226,226,226);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+ .hamburger{
+     display:none;
+ }
+.hamburger div{
+    background:rgb(226,226,226);
+    width: 25px;
+    height: 3px;
+    margin:5px;
+}
+@media screen and (max-width:1024px){
+.nav-links{
+    width: 60%;
+    /* برای اینکه اگر صفحه نمایش کوچک باشد فاصله بین آیتم ها از بین میرود
+    پس در صفحه نمایش کوپک اندازه را بزرگتر میگیریم.
+    اما اگر صفحه نمایش خیلی بزرگ باشد 60 درصد اندازه بزرگی می شود
+     و آیتم ها خیلی فاصله دار از هم قرار میگیرند.
+    پس برای دستگاههای خیلی بزرگ اندازه را 30 میگیریم تا ظاهر بهتری داشته باشد. */
+}
+}
+@media screen and (max-width:768px) {
+    body{
+      overflow-x: hidden;
+    }
+    
+        .nav-links{
+           
+            position: absolute;
+         height:92vh;
+         /* چون به نوبار ارتفاع 8 دادیم اینجا 92 میدیم تا فول اسکرین شود*/
+         top:8vh;
+            right:0px;
+            background: #5d4954;
+            flex-direction: column;
+           align-items: center;
+           width:50%;
+           transform: translateX(100%);
+           /* در این حالت باکس یو ال خارج از صفحه نمایش است */
+           transition: transform .5s ease-in;
+        
+        }
+
+        .nav-links li{
+            opacity: 0;
+        }
+
+        .hamburger{
+            display: block;
+            cursor: pointer;
+        }
+
+        .open{
+            transform: translateX(0%);
+         
+        }
+        @keyframes fade{
+            from{
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to{
+                opacity: 1;
+                transform: translateX(0px);
+            }
+        }
+}
